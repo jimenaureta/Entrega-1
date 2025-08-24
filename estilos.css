@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    min-height: 100dvh;
+    color: black;
+    background-color: gainsboro;
+}
+
+.login-fondo {
+    background-image: url("https://wallpapers.com/images/hd/cute-aesthetic-tree-8-bit-aqw5erehju889dx6.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    height: 100vh;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 25px;
+    border-radius: 15px;
+    width: 300px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+
+    border: 2px solid #f5cfe7;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 93%;
+    padding: 10px;
+    margin-top: 6px;
+    margin-bottom: 15px;
+    border: 2px solid #d6c8f0;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+
+
+    background-color: #fffafc;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    border-color: #c3a7f5;
+    box-shadow: 0 0 8px rgba(195, 167, 245, 0.5);
+}
+
+#btnIngresar {
+    display: block;
+    margin: 15px auto 0 auto;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #f5a9e1, #c6a8f7);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#btnIngresar:hover {
+    background: linear-gradient(135deg, #c6a8f7, #f5a9e1);
+    transform: scale(1.05);
+}
