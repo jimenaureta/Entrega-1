@@ -49,7 +49,6 @@ body.login-fondo main{
   padding:clamp(16px, 5vw, 32px);
 }
 
-
 .login-panel label{
   display:block;
   margin:6px 2px 6px;
@@ -91,54 +90,68 @@ body.login-fondo main{
 #btnIngresar:hover{ transform: translateY(-1px); filter:brightness(1.05); }
 #btnIngresar:active{ transform: translateY(0); filter:brightness(.98); }
 
-@media screen and (max-width: 768px) { 
-    .formulario {
-        margin: 12rem;
-        padding: 5rem;
-        width: 85%;
-    }
-
-    #loginForm {
-        width: 100%;
-        padding: 0rem;
-        font-size: 1.3rem;
-    }
-
-    form input,
-    #btnIngresar {
-        font-size: 1rem;
-        padding: 1rem;
-     }
-     form input, 
-     #txtUsuario { font-size: 1rem;}
-     
-     form input, 
-    #pssContraseña { font-size: 1rem};
+@media screen and (max-width: 1366px) {
+  .login-panel{
+    width:min(480px,80vw);
+    padding:24px 20px;
+  }
+  .login-panel input,
+  #btnIngresar{
+    font-size:1rem;
+  }
 }
 
-@media screen and (max-width: 1366px) { 
-    .formulario {
-        margin: 25rem;
-        padding: 2.5rem;
-        width: 20%;
-    }
+@media screen and (max-width: 768px) {
+  .login-panel{
+    width:90%;
+    padding:22px 18px;
+  }
+  .login-panel input,
+  #btnIngresar{
+    font-size:1rem;
+    padding:12px;
+  }
+}
 
-    #loginForm {
-        width: 100%;
-        padding: 0rem;
-        font-size: 1.3rem;
-    }
+@media screen and (max-width: 480px) {
+  .login-panel{
+    width:100%;
+    padding:18px 14px;
+  }
+  .login-panel input,
+  #btnIngresar{
+    font-size:.95rem;
+    padding:10px;
+  }
+}
 
-    form input,
-    #btnIngresar {
-        font-size: 1rem;
-        padding: 1rem;
-     }
-     form input, 
-     #txtUsuario { font-size: 1rem;}
-     
-     form input, 
-    #pssContraseña { font-size: 1rem};
+.top.only-user{
+  max-width:1060px;
+  margin:12px auto 8px;
+  padding:0 20px;
+  display:flex;
+  justify-content:flex-end;   
+  align-items:center;
+}
+
+body.login-fondo > main{
+  position: fixed;      
+  inset: 0;             
+  display: grid;
+  place-items: center;  
+  padding: 24px;        
+  z-index: 1;           
+}
+
+.login-panel{
+  margin: 0;               
+  width: min(520px, 92vw);  
+  transform: none !important;
+  left: auto; right: auto; top: auto; bottom: auto; 
+}
+
+body.login-fondo main *{
+  box-sizing: border-box;
 }
 
 .top.only-user{
@@ -170,4 +183,5 @@ body.login-fondo > main{
 
 body.login-fondo main *{
   box-sizing: border-box;
+
 }
