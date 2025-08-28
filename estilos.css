@@ -1,100 +1,97 @@
-body {
-    margin: 0;
-    min-height: 100dvh;
-    color: black;
-    background-color: gainsboro;
+html{ scrollbar-gutter: stable; }
+html, body.login-fondo{ height:100%; }
+
+body.login-fondo{
+  background-image:url("https://wallpapers.com/images/hd/cute-aesthetic-tree-8-bit-aqw5erehju889dx6.jpg");
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-attachment:fixed; 
+  position: relative;
 }
 
-.login-fondo {
-    background-image: url("https://wallpapers.com/images/hd/cute-aesthetic-tree-8-bit-aqw5erehju889dx6.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin: 0;
-    height: 100vh;
-
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body.login-fondo::before{
+  content:"";
+  position:fixed; inset:0;
+  background: linear-gradient(180deg, rgba(255,255,255,.25), rgba(0,0,0,.45));
+  pointer-events:none;
+  z-index:0;
 }
 
-.formulario {
-    background: rgba(255, 255, 255, 0.7);
-    padding: 25px;
-    border-radius: 15px;
-    width: 300px;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-
-    border: 2px solid #f5cfe7;
+main{
+  min-height:100dvh;
+  display:grid;
+  place-items:center;
+  padding:24px;
+  position:relative;
+  z-index:1;
 }
 
-input[type="text"],
-input[type="password"] {
-    width: 93%;
-    padding: 10px;
-    margin-top: 6px;
-    margin-bottom: 15px;
-    border: 2px solid #d6c8f0;
-    border-radius: 8px;
-    outline: none;
-    font-size: 14px;
-
-
-    background-color: #fffafc;
-    transition: 0.3s;
+.login-panel{
+  width:min(520px, 92vw);
+  margin: 0 auto;
+  display:grid; gap:12px;
+  padding:26px 22px 20px;
+  background: rgba(255,255,255,.60);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,.75);
+  border-radius:14px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.25);
+  transform: translateZ(0);
 }
 
-input[type="text"]:focus,
-input[type="password"]:focus {
-    border-color: #c3a7f5;
-    box-shadow: 0 0 8px rgba(195, 167, 245, 0.5);
+body.login-fondo main{
+  min-height:100svh;             
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:clamp(16px, 5vw, 32px);
 }
 
-#btnIngresar {
-    display: block;
-    margin: 15px auto 0 auto;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 20px;
-    background: linear-gradient(135deg, #f5a9e1, #c6a8f7);
-    color: white;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    transition: 0.3s;
+
+.login-panel label{
+  display:block;
+  margin:6px 2px 6px;
+  font-weight:700;
+  color:#111827;
 }
 
-#btnIngresar:hover {
-    background: linear-gradient(135deg, #c6a8f7, #f5a9e1);
-    transform: scale(1.05);
+.login-panel input{
+  display:block;
+  width:100%;
+  height:46px;
+  padding:10px 12px;
+  border:2px solid #c7b8ff;         
+  background: rgba(255,255,255,.95);
+  color:#111;
+  border-radius:10px;
+  outline:none;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .05s;
 }
 
-@media screen and (max-width: 320px) { /* Smartphone Pequeño 320 x 568 px */
-    .formulario {
-        margin: 3rem;
-        padding: 1.5rem;
-        width: 100%;
-    }
-
-    #loginForm {
-        width: 100%;
-        padding: 0rem;
-        font-size: 0.8rem;
-    }
-
-    form input,
-    #btnIngresar {
-        font-size: 0.8rem;
-        padding: 0.5rem;
-     }
-     form input, 
-     #txtUsuario { font-size: 0.8rem;}
-     form input, 
-    #pssContraseña { font-size: 0.8rem};
+.login-panel input:focus{
+  border-color:#8b5cf6;               
+  box-shadow:0 0 0 4px rgba(139,92,246,.25);
 }
 
-@media screen and (max-width: 768px) { /* Tableta en Modo Vertical 768 x 1024 px */
+#btnIngresar{
+  justify-self:center;
+  margin-top:14px;
+  padding:10px 22px;
+  border:0;
+  border-radius:9999px;
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+  background: linear-gradient(180deg,#f0abfc,#d946ef);
+  box-shadow:0 8px 18px rgba(217,70,239,.35);
+  transition: transform .08s ease, filter .15s ease;
+}
+#btnIngresar:hover{ transform: translateY(-1px); filter:brightness(1.05); }
+#btnIngresar:active{ transform: translateY(0); filter:brightness(.98); }
+
+@media screen and (max-width: 768px) { 
     .formulario {
         margin: 12rem;
         padding: 5rem;
@@ -119,7 +116,7 @@ input[type="password"]:focus {
     #pssContraseña { font-size: 1rem};
 }
 
-@media screen and (max-width: 1366px) { /* Resoulción Estándar 1366 x 768 px */
+@media screen and (max-width: 1366px) { 
     .formulario {
         margin: 25rem;
         padding: 2.5rem;
@@ -144,3 +141,33 @@ input[type="password"]:focus {
     #pssContraseña { font-size: 1rem};
 }
 
+.top.only-user{
+  max-width:1060px;
+  margin:12px auto 8px;
+  padding:0 20px;
+  display:flex;
+  justify-content:flex-end;   
+  align-items:center;
+}
+
+html{ scrollbar-gutter: stable; }
+
+body.login-fondo > main{
+  position: fixed;      
+  inset: 0;             
+  display: grid;
+  place-items: center;  
+  padding: 24px;        
+  z-index: 1;           
+}
+
+.login-panel{
+  margin: 0;               
+  width: min(520px, 92vw);  
+  transform: none !important;
+  left: auto; right: auto; top: auto; bottom: auto; 
+}
+
+body.login-fondo main *{
+  box-sizing: border-box;
+}

@@ -1,52 +1,109 @@
-/* ===== Base ===== */
-*{ box-sizing:border-box }
-:root{ --bg:#f4f4f9; --text:#333; --muted:#777; --accent:#0a7c2f; --danger:#ef4444 }
-html,body{ margin:0; padding:0 }
-body{ font-family:Arial, sans-serif; background:var(--bg); color:var(--text) }
-
-/* ===== Barra superior ===== */
-.top{
-  position:sticky; top:0; z-index:10;
-  display:flex; align-items:center; justify-content:space-between; gap:1rem;
-  padding:.75rem 1rem; background:var(--bg); border-bottom:1px solid #e5e7eb;
-}
-.top h1{ margin:0; font-size:1.6rem }
-.link-btn{ border:0; background:var(--danger); color:#fff; padding:.5rem .9rem; border-radius:.5rem; cursor:pointer }
-.link-btn:hover{ filter:brightness(.95) }
-
-/* ===== Layout ===== */
-.wrap{ max-width:1200px; margin:1rem auto; padding:0 1rem }
-.lista{
-  display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
-  gap:25px;
+:root{
+  --page-bg: #f3f4f6;      
+  --bar-bg: #e5e7eb;       
+  --chip-bg: #111;
+  --chip-fg: #fff;
+  --card-bg: #fff;
+  --muted: #6b7280;        
+  --price: #0a7d33;        
 }
 
-/* ===== Tarjeta ===== */
+.pg{ background: var(--page-bg); }
+
+.pagebar{
+  background: var(--bar-bg);
+  box-shadow: 0 2px 6px rgba(0,0,0,.06) inset;
+}
+.bar-inner{
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.title{
+  margin: 0;
+  font-size: 40px;
+  line-height: 1.1;
+}
+.bar-right{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.user-badge{
+  padding: 4px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 9999px;
+  background: var(--chip-bg);
+  color: var(--chip-fg);
+  font-weight: 700;
+  white-space: nowrap;
+}
+.salir-btn{
+  padding: 6px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+.salir-btn:hover{ filter: brightness(.95); }
+
+.wrap{ max-width: 1120px; margin: 0 auto; padding: 20px; }
+
+.cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 26px;
+}
+
 .fila{
-  background:#fff; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,.15);
-  padding:15px; display:flex; flex-direction:column; gap:.75rem;
-  transition:transform .2s ease; overflow:hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border: 1px solid #eef0f3;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  overflow: hidden;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
-.fila:hover{ transform:translateY(-5px) }
+.fila:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.12);
+}
 
-/* ===== Imagen ===== */
-figure, .thumb{ margin:0 }
-.thumb{
-  width:100%; height:220px;
-  display:grid; place-items:center;
-  background:#fafafa; border-radius:10px; overflow:hidden;
-}
+.thumb{ margin: 0; }
 .thumb img{
-  width:100%; height:100%; object-fit:contain; display:block;
+  width: 100%;
+  height: 190px;            
+  object-fit: contain;      
+  display: block;
+  background: #fafafa;      
 }
 
-/* ===== Texto ===== */
-.info{ padding:0 }
-.nombre{ font-size:1.2rem; margin:0 0 10px; color:#222 }
-.vendidos{ font-size:.9rem; color:var(--muted); display:block; margin-bottom:10px }
-.desc{ font-size:.95rem; margin-bottom:10px; color:#444 }
-.precio{ font-size:1.1rem; font-weight:700; color:var(--accent) }
+.info{ padding: 16px 18px 18px; position: relative; }
+.nombre{ margin: 0 0 8px; font-size: 18px; font-weight: 700; }
+.vendidos{ display: block; font-size: 13px; color: var(--muted); margin-bottom: 10px; }
 
-/* neutraliza clases antiguas que achicaban imágenes */
-.onix,.fiat-way,.suzuki-celerio,.bugatti-chiron,.Peugeot-208{ width:auto; height:auto; border-radius:0 }
+.box{
+  background: transparent;
+  border: 0;
+  padding: 0;
+  position: static;    
+  min-height: auto;
+}
+.desc{ margin: 0 0 14px; color: #111; }
+
+.precio{
+  display: inline-block;
+  font-weight: 800;
+  color: var(--price);
+  letter-spacing: .2px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 720px){
+  .title{ font-size: 32px; }
+  .thumb img{ height: 200px; object-fit: cover; } /* imagen llena mejor en móvil */
+}

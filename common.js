@@ -1,22 +1,23 @@
-// define la URL del JSON de productos (categoría 101).
+// URL del JSON (cat. 101)
 export const PRODUCTS_101_URL =
-  "https://japceibal.github.io/emercado-api/cats_products/101.json"; //
+  "https://japceibal.github.io/emercado-api/cats_products/101.json";
 
-// hace el fetch y, si la respuesta no es OK, lanza un error; si todo va bien, devuelve el r.json()
+// Fetch JSON con manejo de error
 export const getJSONData = (URL) =>
-  fetch(URL).then(r => {
-    if (!r.ok) throw new Error(`HTTP ${r.status}`); //
+  fetch(URL).then((r) => {
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
     return r.json();
   });
 
-// convierte una ruta relativa del JSON en una URL absoluta apuntando a https://japceibal.github.io/emercado-api/. Si path ya es una URL (http/https), la devuelve tal cual.
+// Convierte "img/..." del JSON a URL absoluta del repo público
 export const fullAsset = (path) => {
   const p = String(path || "").trim();
-  if (/^https?:\/\//i.test(p)) return p;    
-  const clean = p.replace(/^(\.\/|\/)+/g, ""); 
+  if (/^https?:\/\//i.test(p)) return p;
+  const clean = p.replace(/^(\.\/|\/)+/g, "");
   return `https://japceibal.github.io/emercado-api/${clean}`;
 };
 
+// ===== Sesión (sessionStorage) =====
 const K = "sesionIniciada";
 const U = "usuario";
 
@@ -30,9 +31,12 @@ export const iniciarSesion = (user) => {
 export const cerrarSesion = () => {
   sessionStorage.removeItem(K);
   sessionStorage.removeItem(U);
-  location.href = "index.html";
+  location.href = "index.html"; // volver al login
 };
 
 export const requerirSesion = () => {
   if (!sesionActiva()) location.href = "index.html";
 };
+
+// leer el email guardado (para pintarlo en la barra)
+export const getUsuario = () => sessionStorage.getItem(U) || "";

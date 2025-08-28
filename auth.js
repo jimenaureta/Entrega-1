@@ -1,25 +1,22 @@
-import { iniciarSesion, sesionActiva } from "./common.js"; // Importa las utilidades.
+import { iniciarSesion } from "./common.js";
 
-console.log("[auth] init, origen:", location.origin, location.pathname); // Para ver origen y ruta en la consola.
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("loginForm");
+  if (!form) return;
 
-if (sesionActiva()) {
-    console.log("[auth] ya hay sesión, redirigiendo a products.html"); // Chequea si hay inicio de sesión
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const u = (document.getElementById("usuario")?.value || "").trim();
+    const p = (document.getElementById("password")?.value || "").trim();
+
+    if (!u || !p) {
+      alert("Complete Email y Contraseña.");
+      (u ? document.getElementById("password") : document.getElementById("usuario"))?.focus();
+      return;
+    }
+
+    iniciarSesion(u);
     location.href = "products.html";
-}
-
-// Espera a que carga el DOM
-addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("loginForm"); // Toma el formulario
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const u = document.getElementById("txtUsuario").value.trim(); // Lee los campos
-        const p = document.getElementById("pssContraseña").value.trim(); 
-        if (!u || !p) {
-            alert("Complete Usuario y Contraseña.");
-            return;
-        }
-        iniciarSesion(u);
-        console.log("[auth] redirigiendo a products.html");
-        location.href = "products.html";
-    });
+  });
 });

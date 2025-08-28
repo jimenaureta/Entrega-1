@@ -1,23 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Categorías</title>
-  <link rel="stylesheet" href="./estilosautos.css" />
+  <link rel="stylesheet" href="estilos.css" />
+  <link rel="stylesheet" href="estilosautos.css" />
 </head>
-<body>
-  <header class="top">
-    <h1>Categorías</h1>
-    <button id="btnSalir" class="link-btn">Salir</button>
+<body class="pg">
+  <!-- Barra superior GRIS con título a la izquierda y usuario + Salir a la derecha -->
+  <header class="pagebar">
+    <div class="bar-inner">
+      <h1 class="title">Categorías:</h1>
+      <div class="bar-right">
+        <span id="usuarioActual" class="user-badge"></span>
+        <button id="btnSalir" class="salir-btn" type="button">Salir</button>
+      </div>
+    </div>
   </header>
-  <!-- Permite contener una única sección vacía  -->
-  <main class="wrap">
-    <!-- El propósito de la misma es para ejecutar products.js donde rellena las tarjetas que obtiene desde el JSON -->
-    <section id="productos-container" class="lista" aria-label="Autos"></section>
-  </main>
-  <!-- Permite cargar la lógica. Puede importar common.js verificando si se inicia sesión, pedir el JSON de la categoría 101 y colocar los productos a través de #productos-container -->
-  <script type="module" src="./products.js"></script>
-</body>
 
+  <main class="wrap">
+    <!-- Grid de tarjetas -->
+    <div id="productos-container" class="cards" aria-live="polite"></div>
+  </main>
+
+  <script type="module" src="products.js"></script>
+</body>
 </html>
