@@ -108,27 +108,13 @@
   .thumb img{ height: 200px; object-fit: cover; } /* imagen llena mejor en móvil */
   }
 
-@media (max-width:1366px) and (min-width: 769px) {
-  .cards {
-  padding: 1rem;
-  display: grid; /* El elemento se comporta como bloque y establece su contenido de acuerdo con el modelo de cuadrícula.*/
-  grid-template-columns: 300px 300px 300px; /* Disposición para 3 columnas*/
-  gap: 4rem; /* Separa las filas y las columnas */
-  justify-content: center;} 
-  .title {font-size: 1.7rem;} /* tamaño del titulo*/
-  .nombre {font-size: 1rem; /* tamaño del nombre */
-  background-color: #dadee4;}
-  .precio {font-size: 1rem; }
-  .desc {  background-color: #dadee4;}
-  .info {position: relative;}
-  .vendidos {color: #111; } 
-  }
+
   /* Resoulción adaptada para Tableta */
-@media (max-width:768px) and (min-widht: 721px) { 
+@media (max-width:768px) and (min-width: 721px) { 
   .cards {
   padding: 3rem;
   display: grid; /* El elemento se comporta como bloque y establece su contenido de acuerdo con el modelo de cuadrícula. */
-  grid-template-columns: 200px 200px; /* Disposición para 2 columnas*/
+  grid-template-columns: repeat(2, 1fr); /* Disposición para 2 columnas*/
   gap: 4rem; /* Separa las filas y las columnas */
   justify-content: center; } 
   .title {font-size: 1.5rem;} /* tamaño del titulo*/
@@ -140,3 +126,19 @@
   .info {position: relative;}
   .vendidos {color: #111; } 
 }
+
+@media (max-width:1366px) and (min-width: 769px) {
+  .cards {
+  padding: 1rem;
+  display: grid; /* El elemento se comporta como bloque y establece su contenido de acuerdo con el modelo de cuadrícula.*/
+  grid-template-columns: repeat(3, 1fr); /* Disposición para 3 columnas*/
+  gap: 4rem; /* Separa las filas y las columnas */
+  justify-content: center;} 
+  .title {font-size: 1.7rem;} /* tamaño del titulo*/
+  .nombre {font-size: 1rem; /* tamaño del nombre */
+  background-color: #dadee4;}
+  .precio {font-size: 1rem; }
+  .desc {  background-color: #dadee4;}
+  .info {position: relative;}
+  .vendidos {color: #111; } 
+  }
