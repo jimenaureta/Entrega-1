@@ -107,7 +107,7 @@
   .title{ font-size: 32px; }
   .thumb img{ height: 200px; object-fit: cover; } /* imagen llena mejor en móvil */
 }
-
+/* Para resolución estandar */
 @media (max-width:1366px) {
   .cards {
   padding: 1rem;
@@ -123,6 +123,7 @@
   .info {position: relative;}
   .vendidos {color: #111; } 
   }
+  /* Resoulción adaptada para Tableta */
 @media (max-width:768px) { 
   .cards {
   padding: 3rem;
